@@ -17,14 +17,14 @@ public class Database
 {
     
     private static Connection connect;
-    private static  String driverName = "org.postgresql.Driver";
+    private static final String driverName = "org.postgresql.Driver";
     private static final String jdbcUrl = "jdbc:postgresql://localhost:5432/school_management";
     private static final String username = "postgres";
     private static final String password = "postgres";
     
     private Database(){}
     
-    private static Connection getInstance()
+    public static Connection getInstance()
     {
         try
         {
@@ -40,5 +40,4 @@ public class Database
         }
         return connect;
     }
-    
 }
