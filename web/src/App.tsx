@@ -1,9 +1,10 @@
 import React from 'react';
+import { LoginComponent } from './components';
 
 function App() {
   return (
-    <div className="bg-red-200">
-      <p className='text-5xl font-bold'>Testing tailwind</p>
+    <div className="">
+      <LoginComponent />
     </div>
   );
 }
