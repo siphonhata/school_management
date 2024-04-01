@@ -1,11 +1,15 @@
 import React from 'react';
-import { LoginComponent } from './components';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LoginComponent, ResetPasswordCard } from './components';
 
 function App() {
   return (
-    <div className="">
-      <LoginComponent />
-    </div>
+    <Router>
+      <Routes>
+        <Route  path="/" element={<LoginComponent />} />
+        <Route path="/reset_password" element={<ResetPasswordCard />} />
+        </Routes>
+    </Router>
   );
 }
 
