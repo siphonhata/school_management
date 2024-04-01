@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AdminModule, LoginComponent, ResetPasswordCard, StudentModule } from './components';
+import { AdminModule, LoginComponent, ResetPasswordCard, StudentModule, TeacherModule } from './components';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <Route path="/reset_password" element={<ResetPasswordCard />} />
         <Route path="/admin/home" element={<AdminModule />} />
         <Route path="/student/home" element={<StudentModule />} />
+        <Route path="/teacher/home" element={<TeacherModule />} />
         </Routes>
     </Router>
   );
