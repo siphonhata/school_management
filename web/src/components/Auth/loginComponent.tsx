@@ -30,12 +30,12 @@ export const LoginComponent = () => {
       </div>
       <Link to={'/reset_password'}><p className='underline text-xs cursor-pointer'>Forgot password</p></Link>
       <div className="flex items-center justify-center">
-        <button
+       <Link to={'/admin/home'} ><button
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
           type="button"
         >
           Sign In
-        </button>
+        </button></Link>
       </div>
     </div>
   </div>

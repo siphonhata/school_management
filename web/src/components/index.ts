@@ -1,1 +1,3 @@
-export * from './Auth'
+export * from './Auth';
+export * from './Admin';
+export * from './Student';
