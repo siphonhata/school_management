@@ -9,3 +9,7 @@ enhancing the efficiency of administrative tasks, optimizing class organization,
 teachers, and administrators. By implementing this system, the aim is to create a cohesive and collaborative environment within educational institutions,
 where everyone involved can easily exchange information, coordinate activities, and address any concerns or issues that may arise. Ultimately,
 the goal is to improve overall school operations and enhance the learning experience for all stakeholders.
+
+## Features
+
+ - **User Roles:** The system currently have this user roles: Admin, Teacher, Parent and Student, and each user has specific functionalities and access levels.
