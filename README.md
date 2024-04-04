@@ -2,7 +2,7 @@
 SCHOOL MANAGEMENT SYSTEM
 </h1>
 
-#About
+# About
 
 The <strong>School Management System</strong> is a web based application built using J2EE stack.This system is intended to streamline the management processes within schools,
 enhancing the efficiency of administrative tasks, optimizing class organization, and fostering smoother communication channels among students, 
