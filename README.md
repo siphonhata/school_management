@@ -13,3 +13,9 @@ the goal is to improve overall school operations and enhance the learning experi
 ## Features
 
  - **User Roles:** The system currently have this user roles: Admin, Teacher, Parent and Student, and each user has specific functionalities and access levels.
+ - **Admin Dashboard:** Administrators can add new students, parents and teachers, create classes and subject, manage user account, and oversee system settings.
+
+## Technologies Used
+- **Backend:** Java EE
+- **Database:** Postgres
+  
