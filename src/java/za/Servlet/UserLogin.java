@@ -27,7 +27,7 @@ public class UserLogin extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-       response.setContentType("text/html;chsrset=UTF-8");
+       response.setContentType("text/html;charset=UTF-8");
        User user;
        HttpSession session = request.getSession();
        UserService userService = new UserServiceImpl();
@@ -39,13 +39,22 @@ public class UserLogin extends HttpServlet
        {
            user = userService.userLogin(email, password);
            
-           session.setAttribute("email", user.getEmail());
-           session.setAttribute("id", user.getId());
-           response.sendRedirect("yes.jsp");
+           if(user != null)
+           {
+                session.setAttribute("email", user.getEmail());
+                session.setAttribute("id", user.getId());
+                response.sendRedirect("yes.jsp");
+           }
+           else
+           {
+                session.setAttribute("wrong", "wrong credentials person");
+                response.sendRedirect("login.jsp");
+           }
+          
        }
        else
        {
-           session.setAttribute("wrong", "wrong credentials");
+           session.setAttribute("blank", "Email/Password cannot be blank");
            response.sendRedirect("index.html");
        }
     }

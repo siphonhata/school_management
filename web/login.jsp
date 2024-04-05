@@ -17,44 +17,17 @@
 
 </head>
 <body>
-     
-  <div class="wrapper">
     <header>Login</header>
-   
-    <%
-        String credential = (String) session.getAttribute("wrong");
-        if (credential != null) {
-            session.removeAttribute("wrong");
-    %>
-    <div class="alert alert-danger" id="danger" style="width: 350px; margin-top: 10px;">Wrong credentials.</div>
-    <%
-       }
-    %>
-    <form method="POST" action="UserLogin">
-      <div class="field email">
-        <div class="input-area">
-            <input type="text" name="email" placeholder="Email Address">
-          <i class="icon fas fa-envelope"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
+<center>
+    <form method="POST" action="UserLogin"><br><br>
+        <label for="email">Email   </label>
+        <input type="text" name="email" placeholder="Email Address"><br><br>
+        <label for="paasword">Password </label>
+        <input type="password" name="password" placeholder="Password"><br><br>
+         <a href="forgot_password.jsp" >Forgot Password</a><br><br>
+        <input type="submit" value="Login">
        
-        <div class="error error-txt">Email can't be blank</div>
-      </div>
-      <div class="field password">
-        <div class="input-area">
-            <input type="password" name="password" placeholder="Password">
-          <i class="icon fas fa-lock"></i>
-          <i class="error error-icon fas fa-exclamation-circle"></i>
-        </div>
-        <div class="error error-txt">Password can't be blank</div>
-      </div>
-      
-      <input type="submit" value="Login">
     </form>
-    <div class="sign-txt">Not yet member? <a href="register.jsp">Sign up now</a></div>
-  </div>
-
-
-
-</body>
-</html>>
+    </center>
+    </body>
+</html>
