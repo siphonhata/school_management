@@ -28,7 +28,7 @@ class EmailUtil
 
         //hscbgaedfkfufwot
     final String USER_NAME = "siphonhata@gmail.com";   
-    final String PASSSWORD = "edqwtxucaibljsnt";  
+    final String PASSSWORD = "jvln nqcl iuzk niyp";  
     //final String FROM_ADDRESS = "siphonhata@gmail.com";  
  
     public EmailUtil() 
@@ -48,6 +48,7 @@ class EmailUtil
     {
     
         Properties props = new Properties();
+        props.put("mail.debug", "true");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
