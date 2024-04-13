@@ -41,6 +41,7 @@ public class UserLogin extends HttpServlet
            
            if(user != null)
            {
+                response.setStatus(HttpServletResponse.SC_OK);
                 session.setAttribute("email", user.getEmail());
                 session.setAttribute("id", user.getId());
                 response.sendRedirect("yes.jsp");

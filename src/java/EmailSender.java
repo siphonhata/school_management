@@ -11,7 +11,7 @@ public class EmailSender {
 
          EmailUtil email = new EmailUtil();
     
-      email.createAndSendEmail("siphonhata@gmail.com", "Test email subject",
+      email.createAndSendEmail("dineomathibela161@gmail.com", "Test email subject",
       "Congratulations !!! \nThis is test email sent by java class.");
         //String senderPassword = "edqw txuc aibl jsnt";
 
@@ -48,8 +48,10 @@ class EmailUtil
     {
     
         Properties props = new Properties();
-        props.put("mail.debug", "true");
+        //props.put("mail.debug", "true");
+        
         props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");

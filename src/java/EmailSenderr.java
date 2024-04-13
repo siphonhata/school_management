@@ -24,15 +24,18 @@ public class EmailSenderr {
 
         // Set up properties for the mail server
         Properties props = new Properties();
-        props.put("mail.debug", "true");
+        
         props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com"); // Change to your SMTP server
-        props.put("mail.smtp.port", "587"); // Change to your SMTP port
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
         // Create a session with the mail server
-        Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
+        Session session = Session.getInstance(props, new Authenticator()
+        {
+            protected PasswordAuthentication getPasswordAuthentication()
+            {
                 return new PasswordAuthentication(from, password);
             }
         });
