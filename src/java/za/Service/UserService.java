@@ -11,4 +11,5 @@ import za.model.User;
 public interface UserService
 {
     public User userLogin(String email, String password);
+    public User getUserByEmail(String email);
 }
