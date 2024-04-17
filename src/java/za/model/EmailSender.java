@@ -1,25 +1,27 @@
+package za.model;
+
 import java.io.File;
 import java.io.IOException;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.Properties;
 
-public class EmailSender {
+//public class EmailSender {
+//
+//    public static void main(String[] args) 
+//    {
+//
+//         EmailUtil email = new EmailUtil();
+//    
+//      email.createAndSendEmail("siphonhata@gmail.com", "Test email subject",
+//      "Congratulations !!! \nThis is test email sent by java class.");
+//        //String senderPassword = "edqw txuc aibl jsnt";
+//
+//    }
+//}
 
-    public static void main(String[] args) 
-    {
 
-         EmailUtil email = new EmailUtil();
-    
-      email.createAndSendEmail("dineomathibela161@gmail.com", "Test email subject",
-      "Congratulations !!! \nThis is test email sent by java class.");
-        //String senderPassword = "edqw txuc aibl jsnt";
-
-    }
-}
-
-
-class EmailUtil 
+public class EmailSender 
 {
  
     private String emailAddressTo = new String();
@@ -31,11 +33,12 @@ class EmailUtil
     final String PASSSWORD = "jvln nqcl iuzk niyp";  
     //final String FROM_ADDRESS = "siphonhata@gmail.com";  
  
-    public EmailUtil() 
+    public EmailSender() 
     {
     }
 
    
+    
     public  void createAndSendEmail(String emailAddressTo, String msgSubject, String msgText) 
     {
         this.emailAddressTo = emailAddressTo;

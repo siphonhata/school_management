@@ -5,49 +5,81 @@
 package za.Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import za.Service.Impl.UserServiceImpl;
+import za.Service.UserService;
+import za.model.User;
+import za.model.EmailSender;
 
 /**
  *
  * @author Abuti-Small
  */
 @WebServlet(name = "ForgotPasswordServlet", urlPatterns = {"/ForgotPasswordServlet"})
-public class ForgotPasswordServlet extends HttpServlet {
-
-    
+public class ForgotPasswordServlet extends HttpServlet 
+{
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        UserService userService = new UserServiceImpl();
+        User user;
         String email = request.getParameter("email");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ForgotPasswordServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Email " + email + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+               
+        System.out.println("| EMAIL | => " + email);
+        user = userService.getUserByEmail(email);
+        
+        if(user != null)
+        {
+            int token = 4901;
+            
+            if (userService.addPasswordTokens(user, token) > 0)
+            {
+                //serService.
+               
+               EmailSender emailObj = new EmailSender();
+               
+               
+               emailObj.createAndSendEmail("siphonhata@gmail.com", "Test email subject", "Congratulations !!! \nThis is test email sent by java class.");
+               response.sendRedirect("verify_code.jsp");
+            }
+            else
+            {
+                //do something 
+                response.sendRedirect("forgot_password.jsp?error=Reset Password error");
+            }
+            
         }
+        else
+        {
+            //Invalid EMail address given
+            response.sendRedirect("forgot_password.jsp?error=Invalid Email given");
+        }
+        
+        
+        
+        
+        
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
         processRequest(request, response);
     }
 }

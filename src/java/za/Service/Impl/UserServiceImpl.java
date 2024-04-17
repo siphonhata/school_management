@@ -4,6 +4,7 @@
  */
 package za.Service.Impl;
 
+
 import za.Dao.UserDao;
 import za.Dao.Impl.UserDaoImpl;
 import za.model.User;
@@ -32,6 +33,18 @@ public class UserServiceImpl implements UserService
     public User getUserByEmail(String email)
     {
         return userDao.getUserByEmail(email);
+    }
+
+    @Override
+    public int addPasswordTokens(User user, int token) 
+    {
+        return userDao.addPasswordTokens(user, token);
+    }
+
+    @Override
+    public int sendEmail(String emailTo, String subject, String message) 
+    {
+        return userDao.sendEmail(emailTo, subject, message);
     }
     
     

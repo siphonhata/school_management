@@ -88,6 +88,7 @@ public class UserDaoImpl implements UserDao
     public User getUserByEmail(String email) 
     {
     
+        System.out.println("|Inside Function EMAIL | => " + email);
         User user = new User();
         
         if(connect != null)
@@ -138,5 +139,54 @@ public class UserDaoImpl implements UserDao
             }
         }
         return null;
+    }
+
+    @Override
+    public int addPasswordTokens(User user, int token) 
+    {
+        ps = null;
+        String sql = "Insert into password_reset_tokens values (?, ?, ?)";
+        int res = 0;
+        if(connect != null)
+        {
+            try
+            {
+                ps = connect.prepareStatement(sql);
+                
+                ps.setInt(1, 3);
+                ps.setString(2, user.getEmail());
+                ps.setInt(3, token);
+                
+                res = ps.executeUpdate();
+            }
+            catch(SQLException ex)
+            {
+                System.out.println("Password Reset token add Error => " + ex.getMessage());
+            }
+            finally
+            {
+                if(ps != null)
+                {
+                    try 
+                    {
+                        ps.close();
+                    } 
+                    catch (SQLException ex) 
+                    {
+                        System.out.println("Password Reset tokens close connection failed =>" + ex.getMessage());
+                    }
+                }
+            }
+                    
+        }
+        return res;
+    }
+
+    @Override
+    public int sendEmail(String emailTo, String subject, String message)
+    {
+        int res = 0;
+        
+        return res;
     }
 }
