@@ -11,6 +11,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import za.Service.UserService;
 import za.Service.Impl.UserServiceImpl;
 import za.model.User;
@@ -25,7 +31,7 @@ public class UserLogin extends HttpServlet
 
   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
+            throws ServletException, IOException, NoSuchAlgorithmException 
     {
        response.setContentType("text/html;charset=UTF-8");
        User user;
@@ -33,7 +39,8 @@ public class UserLogin extends HttpServlet
        UserService userService = new UserServiceImpl();
        
        String email = request.getParameter("email");
-       String password = request.getParameter("password");
+       String pass = request.getParameter("password");
+       String password = hashPassword(pass);
        
        if(!"".equals(email) && !"".equals(password))
        {
@@ -62,8 +69,16 @@ public class UserLogin extends HttpServlet
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException
+    {
+        try 
+        {
+            processRequest(request, response);
+        }
+        catch (NoSuchAlgorithmException ex) 
+        {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
   
@@ -71,7 +86,30 @@ public class UserLogin extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        processRequest(request, response);
+        try 
+        {
+            processRequest(request, response);
+        }
+        catch (NoSuchAlgorithmException ex) 
+        {
+            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static String hashPassword(String password) throws NoSuchAlgorithmException
+    {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] hashBytes = md.digest(password.getBytes());
+        return Base64.getEncoder().encodeToString(hashBytes);
+    }
+
+    // Method to generate a salt
+    public static byte[] generateSalt() 
+    {
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+        return salt;
     }
 }
     

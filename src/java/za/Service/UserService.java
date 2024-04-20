@@ -10,6 +10,9 @@ import za.model.User;
  */
 public interface UserService
 {
+    
+    public int addUser(User user);
+    public String hash(String password);
     public User userLogin(String email, String password);
     public User getUserByEmail(String email);
     public int addPasswordTokens(User user, int token);

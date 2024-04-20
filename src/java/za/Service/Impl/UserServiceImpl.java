@@ -46,7 +46,17 @@ public class UserServiceImpl implements UserService
     {
         return userDao.sendEmail(emailTo, subject, message);
     }
-    
-    
-    
+
+    @Override
+    public int addUser(User user)
+    {
+        return userDao.addUser(user);
+    }
+
+    @Override
+    public String hash(String password) 
+    {
+        return userDao.hash(password);
+    }
+
 }
