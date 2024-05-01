@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 //public class EmailSender {
 //
@@ -27,6 +29,7 @@ public class EmailSender
     private String emailAddressTo = new String();
     private String msgSubject = new String();
     private String msgText = new String();
+    private ExecutorService executorService;
 
         //hscbgaedfkfufwot
     final String USER_NAME = "siphonhata@gmail.com";   
@@ -35,11 +38,18 @@ public class EmailSender
  
     public EmailSender() 
     {
+        executorService = Executors.newSingleThreadExecutor();
     }
 
+    
+    public void createAndSendEmailAsync(String emailAddressTo, String msgSubject, String msgText) 
+    {
+        // Execute email sending task asynchronously
+        executorService.submit(() -> createAndSendEmail(emailAddressTo, msgSubject, msgText));
+    }
    
     
-    public  void createAndSendEmail(String emailAddressTo, String msgSubject, String msgText) 
+    private void createAndSendEmail(String emailAddressTo, String msgSubject, String msgText) 
     {
         this.emailAddressTo = emailAddressTo;
         this.msgSubject = msgSubject;

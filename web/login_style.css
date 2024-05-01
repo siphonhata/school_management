@@ -1,0 +1,67 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 1, 2024, 4:45:04 PM
+    Author     : Abuti-Small
+*/
+
+/* Target the login section */
+/* Move the login section down */
+.login {
+  margin: auto;
+  width: 300px; /* Adjust width as needed */
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fafafa;
+  /* Add margin from top for positioning */
+  margin-top: 100px;  
+}
+
+/* Style the form */
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the form group */
+.login .form-group {
+  margin-bottom: 15px;
+}
+
+/* Style the labels */
+.login .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style the input fields */
+.login .form-group input[type="text"],
+.login .form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style the submit button */
+.login .form-group button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Style the forgot password link */
+.login a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: smaller;
+  margin-top: 5px;
+  display: block;
+}

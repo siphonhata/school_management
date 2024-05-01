@@ -44,9 +44,22 @@ public class ForgotPasswordServlet extends HttpServlet
                 //serService.
                
                EmailSender emailObj = new EmailSender();
+               String subject = "Password Reset Request";
+               String mess = "Dear " + user.getFirst_name() + "\n" +
+                       "\nYou recently requested to reset your password for your account with us. "
+                       + "To complete the process, please use the following reset code:\n" +
+                         "\nReset Code: " + token + "\n" +
+                         "Validity: [Validity Period]\n" +
+                         "Link: http://localhost/school_management/verify_code.jsp" +
+                         "\nPlease visit our password reset page and enter the reset code to " +
+                         "proceed with resetting your password. Please note that the reset code " +
+                         "is only valid for the specified duration.\n" +
+                         "\nIf you did not request a password reset, please ignore this email.\n" +
+                         "Thank you,\n" +
+                         "\n\nSchool Management Team\n";
+            
                
-               
-               emailObj.createAndSendEmail("siphonhata@gmail.com", "Test email subject", "Congratulations !!! \nThis is test email sent by java class.");
+               emailObj.createAndSendEmailAsync(user.getEmail(), subject, mess);
                response.sendRedirect("verify_code.jsp");
             }
             else

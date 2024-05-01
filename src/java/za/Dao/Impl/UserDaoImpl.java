@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import za.Dao.UserDao;
 import za.model.User;
+
 /**
  *
  * @author Abuti-Small
@@ -164,7 +165,7 @@ public class UserDaoImpl implements UserDao
             {
                 ps = connect.prepareStatement(sql);
                 
-                ps.setInt(1, 3);
+                ps.setString(1, "");
                 ps.setString(2, user.getEmail());
                 ps.setInt(3, token);
                 
@@ -204,15 +205,12 @@ public class UserDaoImpl implements UserDao
     @Override
     public int addUser(User user) 
     {
-    
-        
         String sql = "Insert into Users values(?,?,?,?,?,?,?,?,?,?,?)";
         int res = 0;
         if(connect != null)
         {   
             try
             {
-                ps = connect.prepareStatement(sql);
                 
                 ps = connect.prepareStatement(sql);
                 ps.setString(1, user.getId());

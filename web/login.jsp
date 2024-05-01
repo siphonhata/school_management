@@ -8,26 +8,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="style1.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - [School Name]</title>
+  <link rel="stylesheet" href="first_page_style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
 </head>
 <body>
-    <header>Login</header>
-<center>
-    <form method="POST" action="UserLogin"><br><br>
-        <label for="email">Email   </label>
-        <input type="text" name="email" placeholder="Email Address"><br><br>
-        <label for="paasword">Password </label>
-        <input type="password" name="password" placeholder="Password"><br><br>
-         <a href="forgot_password.jsp" >Forgot Password</a><br><br>
-        <input type="submit" value="Login">
-       
-    </form>
-    </center>
-    </body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="school_logo.png" alt="[School Name] Logo">
+      </div>
+      <h1>Dineo Mathibela Combine School</h1>
+    </div>
+  </header>
+    <br><br<br><br>
+  <main>
+    <section class="login">
+      <h2>Login to School Portal</h2>
+      <form action="UserLogin" method="post">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
+        <a href="#">Forgot Password?</a>
+        <p>New User? <a href="#">Register Here</a></p>
+      </form>
+    </section>
+  </main>
+</body>
 </html>
