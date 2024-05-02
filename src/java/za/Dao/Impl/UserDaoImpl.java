@@ -195,14 +195,6 @@ public class UserDaoImpl implements UserDao
     }
 
     @Override
-    public int sendEmail(String emailTo, String subject, String message)
-    {
-        int res = 0;
-        
-        return res;
-    }
-
-    @Override
     public int addUser(User user) 
     {
         String sql = "Insert into Users values(?,?,?,?,?,?,?,?,?,?,?)";

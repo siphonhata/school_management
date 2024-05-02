@@ -8,46 +8,28 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-//public class EmailSender {
-//
-//    public static void main(String[] args) 
-//    {
-//
-//         EmailUtil email = new EmailUtil();
-//    
-//      email.createAndSendEmail("siphonhata@gmail.com", "Test email subject",
-//      "Congratulations !!! \nThis is test email sent by java class.");
-//        //String senderPassword = "edqw txuc aibl jsnt";
-//
-//    }
-//}
-
-
 public class EmailSender 
 {
  
     private String emailAddressTo = new String();
     private String msgSubject = new String();
     private String msgText = new String();
-    private ExecutorService executorService;
+    private final ExecutorService executorService;
 
         //hscbgaedfkfufwot
     final String USER_NAME = "siphonhata@gmail.com";   
-    final String PASSSWORD = "jvln nqcl iuzk niyp";  
-    //final String FROM_ADDRESS = "siphonhata@gmail.com";  
+    final String PASSSWORD = "jvln nqcl iuzk niyp";    
  
     public EmailSender() 
     {
         executorService = Executors.newSingleThreadExecutor();
     }
-
     
     public void createAndSendEmailAsync(String emailAddressTo, String msgSubject, String msgText) 
     {
         // Execute email sending task asynchronously
         executorService.submit(() -> createAndSendEmail(emailAddressTo, msgSubject, msgText));
     }
-   
     
     private void createAndSendEmail(String emailAddressTo, String msgSubject, String msgText) 
     {

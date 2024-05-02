@@ -133,3 +133,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   margin-top: 5px;
   display: block;
 }
+
+#error-popup {
+  display: none;  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #f00;  color: #fff;
+  border-radius: 4px;
+  font-size: smaller;
+  z-index: 999; 
+  font-family: Arial, sans-serif;
+}

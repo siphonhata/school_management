@@ -16,5 +16,4 @@ public interface UserService
     public User userLogin(String email, String password);
     public User getUserByEmail(String email);
     public int addPasswordTokens(User user, int token);
-    public int sendEmail(String emailTo, String subject, String message);
 }

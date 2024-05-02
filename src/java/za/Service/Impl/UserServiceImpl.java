@@ -42,12 +42,6 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public int sendEmail(String emailTo, String subject, String message) 
-    {
-        return userDao.sendEmail(emailTo, subject, message);
-    }
-
-    @Override
     public int addUser(User user)
     {
         return userDao.addUser(user);

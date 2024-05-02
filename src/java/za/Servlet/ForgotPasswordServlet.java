@@ -26,13 +26,14 @@ public class ForgotPasswordServlet extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
+        //System.out.println("Password reset start");
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         UserService userService = new UserServiceImpl();
         User user;
         String email = request.getParameter("email");
                
-        System.out.println("| EMAIL | => " + email);
+        //System.out.println("EMAIL | => " + email);
         user = userService.getUserByEmail(email);
         
         if(user != null)

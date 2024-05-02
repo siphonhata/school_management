@@ -28,11 +28,10 @@ import za.model.User;
 @WebServlet(name = "UserLogin", urlPatterns = {"/UserLogin"})
 public class UserLogin extends HttpServlet 
 {
-
-  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NoSuchAlgorithmException 
     {
+       System.out.println("User Login test");
        response.setContentType("text/html;charset=UTF-8");
        User user;
        HttpSession session = request.getSession();
@@ -44,10 +43,12 @@ public class UserLogin extends HttpServlet
        
        if(!"".equals(email) && !"".equals(password))
        {
+           System.out.println("Username and Password not empty");
            user = userService.userLogin(email, password);
            
            if(user != null)
            {
+                System.out.println("User found");
                 response.setStatus(HttpServletResponse.SC_OK);
                 session.setAttribute("email", user.getEmail());
                 session.setAttribute("id", user.getId());
@@ -55,15 +56,14 @@ public class UserLogin extends HttpServlet
            }
            else
            {
-                session.setAttribute("wrong", "wrong credentials person");
+                session.setAttribute("wrong", "Invalid username or password!");
                 response.sendRedirect("login.jsp");
-           }
-          
+           }          
        }
        else
        {
-           session.setAttribute("blank", "Email/Password cannot be blank");
-           response.sendRedirect("index.html");
+           session.setAttribute("blank", "Email/Password cannot be empty");
+           response.sendRedirect("login.jsp");
        }
     }
 
@@ -77,7 +77,7 @@ public class UserLogin extends HttpServlet
         }
         catch (NoSuchAlgorithmException ex) 
         {
-            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("NoSuchAlgorithmException error => " + ex.getMessage());
         }
     }
 
@@ -92,7 +92,7 @@ public class UserLogin extends HttpServlet
         }
         catch (NoSuchAlgorithmException ex) 
         {
-            Logger.getLogger(UserLogin.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("NoSuchAlgorithmException error => " + ex.getMessage());
         }
     }
     

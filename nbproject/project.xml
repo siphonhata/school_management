@@ -28,6 +28,8 @@
             </test-roots>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Dineo</word>
+            <word>Mathibela</word>
             <word>nbhost</word>
         </spellchecker-wordlist>
     </configuration>
