@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="first_page_style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  
 </head>
 <body>
   <header>

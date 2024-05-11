@@ -145,3 +145,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   z-index: 999; 
   font-family: Arial, sans-serif;
 }
+
+.hero {
+  /* Existing styles for the hero section (if any) */
+}
+
+.hero-content {
+  width: 80%;  /* Adjust width as needed */
+  margin: 0 auto;  /* Center the content horizontally */
+  padding: 20px;  /* Add some padding inside the box */
+  border: 3px solid black;  /* Black border style */
+}
+
+.black-box {
+  width: 80%;  /* Adjust width as needed */
+  margin: 0 auto;  /* Center the box horizontally */
+  padding: 20px;  /* Add some padding inside the box */
+  border: 3px solid black;  /* Black border style */
+  clear: both;  /* Clear any floats to avoid overlapping content */
+}
+
+.container {
+  /* Existing styles for the container (if any) */
+}
